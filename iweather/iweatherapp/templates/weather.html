@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location</title>
+</head>
+<body>
+<h1>Weather Information for {{ weather_data.name }}, {{ weather_data.sys.country }}</h1>
+<p>Temperature: {{ weather_data.weather }}°C</p>
+<p>Feels like: {{ weather_data.main.feels_like }}°C</p>
+<p>Weather Description: {{ weather_data.weather.0.description }}</p>
+<p>Wind Speed: {{ weather_data.wind.speed }} m/s</p>
+<p>Humidity: {{weather_data.humidity }}%</p>
+</body>
+</html>

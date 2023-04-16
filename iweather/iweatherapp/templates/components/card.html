@@ -1,0 +1,85 @@
+{% if weather_data %}
+{%load static%}
+<div class="card mx-auto my-5" style="width: 30rem;" id="dashboard-card">  
+    <div id=table>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="border-bottom border-right">
+                    <div>
+                        <h1 class="text-center display-3">{{ weather_data.temp }}&deg; C</h1>
+                        <p><strong>{{ weather_data.temp_min }}&deg;C - {{ weather_data.temp_max }}&deg;C</strong></p>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <p>{{ weather_data.city }}<small class="text-muted">({{ weather_data.country }})</small></p>
+                    </div>
+                    <div>
+                        <small>
+                            <strong>Lattitude:</strong>
+                            {{ weather_data.lat }}
+                        </small>
+                    </div>
+                    <div>
+                        <small>
+                            <strong>Longitude:</strong>
+                            {{ weather_data.lon }}
+                        </small>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="card-body">  
+        <div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>
+                                <img src="{% static '6.png' %}" width="50" height="50" align="left">
+                                <strong>Weather: </strong> {{ weather_data.weather }}
+                                <small class="text-muted">{{ weather_data.weather_desc }}</small>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <img src="{% static '3.png' %}" width="50" height="50" align="left">
+                                <strong>Pressure: </strong> {{ weather_data.pressure }} 
+                                <small class="text-muted">hPa</small>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p> 
+                                <img src="{% static 'cloudy.png' %}" width="50" height="50" align="left">
+                                <strong>Humidity: </strong> {{ weather_data.humidity }} %
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <img src="{% static '5.png' %}" width="50" height="50" align="left">
+                                <strong>Wind Speed: </strong> {{ weather_data.wind_speed }} 
+                                <small class="text-muted">m/s</small>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+    </div>
+</div>
+</div>
+{% else %}
+    <div class="card mx-auto my-5" style="width: 30rem;" id="dashboard-card">  
+        <div class="card-body">  
+            <h3>Data Not Found</h3>
+        </div>
+    </div>
+{% endif %}
